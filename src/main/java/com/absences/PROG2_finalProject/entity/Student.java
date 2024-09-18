@@ -1,4 +1,4 @@
-package com.absences.PROG2_finalProject.models;
+package com.absences.PROG2_finalProject.entity;
 
 
 import lombok.AllArgsConstructor;
