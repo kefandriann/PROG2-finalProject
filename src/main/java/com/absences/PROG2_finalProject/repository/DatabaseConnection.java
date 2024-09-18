@@ -1,4 +1,4 @@
-package com.absences.PROG2_finalProject.SQL;
+package com.absences.PROG2_finalProject.repository;
 
 import org.springframework.stereotype.Component;
 

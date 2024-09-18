@@ -1,4 +1,4 @@
-package com.absences.PROG2_finalProject.entity;
+package com.absences.PROG2_finalProject.models;
 
 
 import lombok.AllArgsConstructor;
@@ -9,7 +9,6 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Getter

@@ -1,4 +1,4 @@
-package com.absences.PROG2_finalProject.entity;
+package com.absences.PROG2_finalProject.models;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
