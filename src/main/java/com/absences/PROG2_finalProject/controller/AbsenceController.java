@@ -1,7 +1,6 @@
 package com.absences.PROG2_finalProject.controller;
 
 import com.absences.PROG2_finalProject.entity.Absence;
-import com.absences.PROG2_finalProject.entity.Student;
 import com.absences.PROG2_finalProject.service.AbsenceService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
