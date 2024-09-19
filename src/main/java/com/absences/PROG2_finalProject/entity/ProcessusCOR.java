@@ -8,7 +8,6 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @AllArgsConstructor
-@Getter
 @Setter
 @EqualsAndHashCode
 public class ProcessusCOR {
@@ -23,6 +22,30 @@ public class ProcessusCOR {
         this.student = student;
         this.step = step;
         this.beginningDate = beginningDate;
+    }
+
+    public String getProcessusId() {
+        return processusId;
+    }
+
+    public String getCommentary() {
+        return commentary;
+    }
+
+    public LocalDate getBeginningDate() {
+        return beginningDate;
+    }
+
+    public LocalDate getEndingDate() {
+        return endingDate;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public Step getStep() {
+        return step;
     }
 
     public void nextStep(){

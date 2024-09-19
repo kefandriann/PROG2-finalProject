@@ -6,9 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
-@Getter
 @Setter
 @EqualsAndHashCode
-public class Teacher {
+public class Teacher extends Person {
     private String teacherId;
+
+    public String getTeacherId() {
+        return teacherId;
+    }
 }
