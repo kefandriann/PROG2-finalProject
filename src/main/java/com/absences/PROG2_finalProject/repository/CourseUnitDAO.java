@@ -2,6 +2,7 @@ package com.absences.PROG2_finalProject.repository;
 
 import com.absences.PROG2_finalProject.entity.CourseUnit;
 import com.absences.PROG2_finalProject.entity.Teacher;
+import com.absences.PROG2_finalProject.service.TeacherService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,9 +13,11 @@ import java.util.Objects;
 
 public class CourseUnitDAO {
     private DatabaseConnection db;
+    private TeacherService teacherService;
 
-    public CourseUnitDAO(DatabaseConnection db) {
+    public CourseUnitDAO(DatabaseConnection db, TeacherService teacherService) {
         this.db = db;
+        this.teacherService = teacherService;
     }
 
     public void addCourse(CourseUnit courseUnit) throws SQLException {

@@ -1,6 +1,7 @@
 package com.absences.PROG2_finalProject.repository;
 
 import com.absences.PROG2_finalProject.entity.Group;
+import com.absences.PROG2_finalProject.entity.ProcessusCOR;
 import com.absences.PROG2_finalProject.entity.Status;
 import com.absences.PROG2_finalProject.entity.Student;
 
@@ -15,6 +16,17 @@ public class StudentDAO {
 
     public StudentDAO(DatabaseConnection db) {
         this.db = db;
+    }
+
+    public void verifyProcessusCOR (ProcessusCOR processusCOR) throws SQLException {
+        String sql = "INSERT INTO processus_cor (processus_id, student_id, step, beginning_date) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement statement = db.getConnection().prepareStatement(sql)){
+            statement.setString(1, processusCOR.getProcessusId());
+            statement.setString(2, processusCOR.getStudent().getStudentId());
+            statement.setString(3, processusCOR.getStep().toString());
+            statement.setObject(4, processusCOR.getBeginningDate());
+            statement.executeUpdate();
+        }
     }
 
     public void addStudent(Student student) throws SQLException {

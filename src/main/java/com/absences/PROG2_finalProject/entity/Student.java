@@ -1,10 +1,12 @@
 package com.absences.PROG2_finalProject.entity;
 
 
+import com.absences.PROG2_finalProject.repository.StudentDAO;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,12 @@ public class Student extends Person {
     private Status status;
     private List<Absence> absences;
     private ProcessusCOR processusCOR;
+
+    private StudentDAO studentDAO;
+
+    public Student(StudentDAO studentDAO) {
+        this.studentDAO = studentDAO;
+    }
 
     public Student(String firstName, String lastName, String studentId, Group group, Status status) {
         super(firstName, lastName);
@@ -74,9 +82,10 @@ public class Student extends Person {
         return invalidAbsences;
     }
 
-    public void verifyProcessusCOR () {
+    public void verifyProcessusCOR (String processusId) throws SQLException {
         if (this.getInvalidAbsences().size() >= 3 && processusCOR == null){
-            processusCOR = new ProcessusCOR(this, Step.CONVOCATION, LocalDate.now());
+            processusCOR = new ProcessusCOR(processusId, this, Step.CONVOCATION, LocalDate.now());
+            studentDAO.verifyProcessusCOR(processusCOR);
         }
     }
 }
