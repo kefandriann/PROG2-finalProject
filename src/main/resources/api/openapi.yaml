@@ -1,0 +1,390 @@
+openapi: 3.0.3
+info:
+  title: PROG2 PROJET FINAL - STD23031
+  version: '1.0.0'
+servers:
+  - url: https://localhost:8080
+paths:
+  /students:
+    post:
+      tags:
+        - Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      responses:
+        201:
+          description: Student added successfully
+    get:
+      tags:
+        - Student
+      responses:
+        200:
+          description: List of students
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+  /students/{studentId}:
+    get:
+      tags:
+        - Student
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Student
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    put:
+      tags:
+        - Student
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        200:
+          description: Student updated successfully
+    delete:
+      tags:
+        - Student
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Student deleted successfully
+  /students/{studentId}/absences:
+    post:
+      tags:
+        - Absence
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Absence'
+      responses:
+        201:
+          description: Absence added successfully
+    get:
+      tags:
+        - Absence
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of student absences
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Absence'
+  /students/{studentId}/absences/{absenceId}:
+    get:
+      tags:
+        - Absence
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: absenceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Absence
+    delete:
+      tags:
+        - Absence
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: absenceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Absence deleted successfully
+  /students/{studentId}/ProcessusCOR:
+    post:
+      tags:
+        - Processus COR
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessusCOR'
+      responses:
+        201:
+          description: Processus COR added successfully
+    get:
+      tags:
+        - Processus COR
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of student proccessus COR
+          content:
+            applicatiom/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProcessusCOR'
+  /students/{studentId}/ProcessusCOR/{processusId}:
+    get:
+      tags:
+        - Processus COR
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: processusId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Processus COR
+    delete:
+      tags:
+        - Processus COR
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: processusId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Processus COR deleted successfully
+  /courses:
+    post:
+      tags:
+        - Course Unit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseUnit'
+      responses:
+        201:
+          description: Course added successfully
+    get:
+      tags:
+        - Course Unit
+      responses:
+        200:
+          description: List of courses
+  /courses/{courseId}:
+    get:
+      tags:
+        - Course Unit
+      parameters:
+        - name: courseId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Course Unit
+    delete:
+      tags:
+        - Course Unit
+      parameters:
+        - name: courseId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Course unit deleted successfully
+  /teachers:
+    post:
+      tags:
+        - Teacher
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        201:
+          description: Teacher added successfully
+    get:
+      tags:
+        - Teacher
+      responses:
+        200:
+          description: List of teachers
+  /teachers/{teacherId}:
+    get:
+      tags:
+        - Teacher
+      parameters:
+        - name: teacherId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Teacher
+    delete:
+      tags:
+        - Teacher
+      parameters:
+        - name: teacherId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Teacher unit deleted successfully
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        studentId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        group:
+          type: string
+          enum:
+            - H1
+            - H2
+            - G1
+            - G2
+            - J1
+            - J2
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+        absences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Absence'
+        processusCOR:
+          $ref: '#/components/schemas/ProcessusCOR'
+    Absence:
+      type: object
+      properties:
+        absenceId:
+          type: string
+        absenceDate:
+          type: string
+          format: date
+        isValid:
+          type: boolean
+        courseUnit:
+          $ref: '#/components/schemas/CourseUnit'
+        student:
+          $ref: '#/components/schemas/Student'
+    ProcessusCOR:
+      type: object
+      properties:
+        processusId:
+          type: string
+        commentary:
+          type: string
+        beginningDate:
+          type: string
+          format: date
+        endingDate:
+          type: string
+          format: date
+        student:
+          $ref: '#/components/schemas/Student'
+        step:
+          type: string
+          enum:
+            - CONVOCATION
+            - OBSERVATION
+            - EXPELL
+            - CLOSED
+    CourseUnit:
+      type: object
+      properties:
+        courseId:
+          type: string
+        teacher:
+          $ref: '#/components/schemas/Teacher'
+    Teacher:
+      type: object
+      properties:
+        teacherId:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
