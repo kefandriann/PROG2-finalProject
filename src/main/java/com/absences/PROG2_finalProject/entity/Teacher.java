@@ -4,7 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper=false)
 public class Teacher extends Person {
     private String teacherId;
 

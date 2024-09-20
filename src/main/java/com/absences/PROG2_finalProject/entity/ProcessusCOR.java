@@ -1,8 +1,6 @@
 package com.absences.PROG2_finalProject.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;

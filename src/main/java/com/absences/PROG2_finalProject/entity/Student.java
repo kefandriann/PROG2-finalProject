@@ -2,16 +2,14 @@ package com.absences.PROG2_finalProject.entity;
 
 
 import com.absences.PROG2_finalProject.repository.StudentDAO;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Setter;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper=false)
 public class Student extends Person {
     private String studentId;
     private Group group;
