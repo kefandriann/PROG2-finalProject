@@ -4,6 +4,7 @@ import com.absences.PROG2_finalProject.entity.ProcessusCOR;
 import com.absences.PROG2_finalProject.entity.Step;
 import com.absences.PROG2_finalProject.entity.Student;
 import com.absences.PROG2_finalProject.service.StudentService;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Repository
 public class ProcessusCORDAO {
     private DatabaseConnection db;
     private StudentService studentService;

@@ -3,6 +3,7 @@ package com.absences.PROG2_finalProject.repository;
 import com.absences.PROG2_finalProject.entity.CourseUnit;
 import com.absences.PROG2_finalProject.entity.Teacher;
 import com.absences.PROG2_finalProject.service.TeacherService;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Repository
 public class CourseUnitDAO {
     private DatabaseConnection db;
     private TeacherService teacherService;

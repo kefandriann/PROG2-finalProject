@@ -1,6 +1,7 @@
 package com.absences.PROG2_finalProject.repository;
 
 import com.absences.PROG2_finalProject.entity.Teacher;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TeacherDAO {
     private DatabaseConnection db;
 

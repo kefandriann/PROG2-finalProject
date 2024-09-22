@@ -4,6 +4,7 @@ import com.absences.PROG2_finalProject.entity.Group;
 import com.absences.PROG2_finalProject.entity.ProcessusCOR;
 import com.absences.PROG2_finalProject.entity.Status;
 import com.absences.PROG2_finalProject.entity.Student;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class StudentDAO {
     private DatabaseConnection db;
 
